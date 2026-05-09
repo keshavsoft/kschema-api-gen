@@ -101,3 +101,7 @@ The format is based on Keep a Changelog.
 ## [1.2.1] - 2026-05-09
 
 - AddSubRoute working on
+
+## [1.4.1] - 2026-05-09
+
+- AddTableName perfect, next working on getall
