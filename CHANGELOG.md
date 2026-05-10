@@ -105,3 +105,7 @@ The format is based on Keep a Changelog.
 ## [1.4.1] - 2026-05-09
 
 - AddTableName perfect, next working on getall
+
+## [1.4.2] - 2026-05-10
+
+- for testing long, so first build full route
