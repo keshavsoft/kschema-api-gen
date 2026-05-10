@@ -6,7 +6,7 @@ import { announce } from "./AddSubRoute/steps/announce.js";
 
 import resolveFolderName from "./AddSubRoute/steps/resolveFolderName.js";
 
-export default ({ folderName = "", argsAsIs, toPath }) => {
+export default ({ folderName = "", argsAsIs, toPath, isAnnounce }) => {
     const localToPath = toPath;
     const resolvedFolderName = resolveFolderName({
         name: folderName
@@ -25,7 +25,7 @@ export default ({ folderName = "", argsAsIs, toPath }) => {
         endpoint: resolvedFolderName
     });
 
-    announce({ inResolvedFolderName: resolvedFolderName });
+    if (isAnnounce) announce({ inResolvedFolderName: resolvedFolderName });
 
     return resolvedFolderName;
 };

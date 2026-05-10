@@ -5,28 +5,34 @@ import addSubRoute from "../commands/addSubRoute.js";
 import addTableName from "../commands/addTableName.js";
 import showAll from "../commands/showAll.js";
 
-export default ({ inRouteObject }) => {
+export default ({ inRouteObject, showLog = true }) => {
     const localcommand = inRouteObject.command;
 
     const fromStartEndPoint = startEndPoint({
         folderName: inRouteObject.root,
-        toPath: process.cwd()
+        toPath: process.cwd(),
+        isAnnounce: false
     });
 
     const fromAddSubRoute = addSubRoute({
         folderName: inRouteObject.version,
-        toPath: path.join(process.cwd(), fromStartEndPoint)
+        toPath: path.join(process.cwd(), fromStartEndPoint),
+        isAnnounce: false
     });
 
     const fromAddTableName = addTableName({
         folderName: inRouteObject.tableName,
-        toPath: path.join(process.cwd(), fromStartEndPoint, fromAddSubRoute)
+        toPath: path.join(process.cwd(), fromStartEndPoint, fromAddSubRoute),
+        isAnnounce: false
     });
+
+    const endpointPath = path.join(process.cwd(), fromStartEndPoint, fromAddSubRoute, fromAddTableName);
 
     const fromShowAll = showAll({
         folderName: inRouteObject.command,
-        toPath: path.join(process.cwd(), fromStartEndPoint, fromAddSubRoute, fromAddTableName)
+        toPath: endpointPath,
+        isAnnounce: false
     });
 
-    console.log("k1 : ", fromShowAll);
+    if (showLog) console.log("endpointPath :", endpointPath);
 };

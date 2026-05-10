@@ -7,7 +7,7 @@ import { announce } from "./StartEndPoint/steps/announce.js";
 
 import resolveFolderName from "../core/resolveFolderName.js";
 
-export default ({ folderName = "", toPath }) => {
+export default ({ folderName = "", toPath, isAnnounce = true }) => {
     const localToPath = toPath;
 
     const resolvedFolderName = resolveFolderName({
@@ -27,7 +27,7 @@ export default ({ folderName = "", toPath }) => {
         endpoint: resolvedFolderName
     });
 
-    announce({ inResolvedFolderName: resolvedFolderName });
+    if (isAnnounce) announce({ inResolvedFolderName: resolvedFolderName });
 
     return resolvedFolderName;
 };

@@ -4,10 +4,7 @@ import checkDuplicate from "./checkDuplicate.js";
 import findInsertIndex from "./findInsertIndex.js";
 import writeFile from "../common/writeFile.js";
 
-const updateImports = (inData) => {
-    const localData = inData;
-    const { appJsPath, endpoint } = localData;
-
+const updateImports = ({ appJsPath, endpoint, showLog }) => {
     const summary = {
         import: { added: false, line: null },
     };
@@ -17,7 +14,9 @@ const updateImports = (inData) => {
 
     if (checkDuplicate(content, endpoint)) {
         summary.import.skipped = true;
-        console.log(summary);
+
+        if (showLog) console.log(summary);
+
         return summary;
     };
 
@@ -34,7 +33,8 @@ const updateImports = (inData) => {
     summary.import.added = true;
     summary.import.line = lineNumber;
 
-    console.log(summary);
+    if (showLog) console.log(summary);
+
     return summary;
 };
 

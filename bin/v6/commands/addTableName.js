@@ -8,7 +8,7 @@ import { announce } from "./AddTableName/steps/announce.js";
 
 import resolveFolderName from "./AddTableName/steps/resolveFolderName.js";
 
-export default ({ folderName = "", toPath }) => {
+export default ({ folderName = "", toPath, isAnnounce }) => {
     const localToPath = toPath;
     const resolvedFolderName = resolveFolderName({
         name: folderName
@@ -32,7 +32,7 @@ export default ({ folderName = "", toPath }) => {
         inTableName: resolvedFolderName
     });
 
-    announce({ inResolvedFolderName: resolvedFolderName });
+    if (isAnnounce) announce({ inResolvedFolderName: resolvedFolderName });
 
     return resolvedFolderName;
 };
