@@ -8,7 +8,10 @@ import showAll from "../commands/showAll.js";
 export default ({ inRouteObject }) => {
     const localcommand = inRouteObject.command;
 
-    const fromStartEndPoint = startEndPoint({ folderName: inRouteObject.root });
+    const fromStartEndPoint = startEndPoint({
+        folderName: inRouteObject.root,
+        toPath: process.cwd()
+    });
 
     const fromAddSubRoute = addSubRoute({
         folderName: inRouteObject.version,

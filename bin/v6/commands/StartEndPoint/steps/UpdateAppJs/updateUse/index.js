@@ -5,7 +5,10 @@ import buildUseLine from "./buildUseLine.js";
 import checkDuplicate from "./checkDuplicate.js";
 import findUseInsertIndex from "./findInsertIndex.js";
 
-const updateAppUse = ({ appJsPath, endpoint, showLog }) => {
+const updateAppUse = (inData) => {
+    const localData = inData;
+    const { appJsPath, endpoint } = localData;
+
     const summary = {
         use: { added: false, skipped: false, line: null }
     };
@@ -15,9 +18,7 @@ const updateAppUse = ({ appJsPath, endpoint, showLog }) => {
 
     if (checkDuplicate(content, endpoint)) {
         summary.use.skipped = true;
-
-        if (showLog) console.log(summary);
-
+        console.log(summary);
         return summary;
     };
 
@@ -34,8 +35,7 @@ const updateAppUse = ({ appJsPath, endpoint, showLog }) => {
     summary.use.added = true;
     summary.use.line = lineNumber;
 
-    if (showLog) console.log(summary);
-
+    console.log(summary);
     return summary;
 };
 
