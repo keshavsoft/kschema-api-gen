@@ -117,3 +117,7 @@ The format is based on Keep a Changelog.
 ## [1.6.3] - 2026-05-10
 
 - perfect with app.js in root also
+
+## [1.6.4] - 2026-05-10
+
+- createapi perfect now with journals
