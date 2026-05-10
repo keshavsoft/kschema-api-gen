@@ -33,4 +33,6 @@ export default ({ folderName = "", toPath }) => {
     });
 
     announce({ inResolvedFolderName: resolvedFolderName });
+
+    return resolvedFolderName;
 };

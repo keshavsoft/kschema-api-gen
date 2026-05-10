@@ -5,13 +5,17 @@ import buildUseLine from "./buildUseLine.js";
 import checkDuplicate from "./checkDuplicate.js";
 import findUseInsertIndex from "./findInsertIndex.js";
 
-const updateAppUse = ({ appJsPath, endpoint, showLog }) => {
+const updateAppUse = ({ appJsPath, endpoint, showLog, inFuncName }) => {
     const summary = {
         use: { added: false, skipped: false, line: null }
     };
 
     const content = readFile(appJsPath);
-    const useLine = buildUseLine(endpoint);
+
+    const useLine = buildUseLine({
+        inEndpoint: endpoint,
+        inFuncName
+    });
 
     if (checkDuplicate(content, endpoint)) {
         summary.use.skipped = true;

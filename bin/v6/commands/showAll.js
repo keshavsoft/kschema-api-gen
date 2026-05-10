@@ -3,25 +3,26 @@ import { locateDestination } from "./ShowAll/steps/locateDestination.js";
 import { createFolder } from "./ShowAll/steps/createFolder.js";
 import updateEndPointsJs from "./ShowAll/steps/updateEndPointsJs.js";
 
-// import { updateAppJs } from "./ShowAll/steps/updateAppJs.js";
-// import { updateEndPointsFile } from "./ShowAll/steps/updateEndPointsFile.js";
-
 import { announce } from "./ShowAll/steps/announce.js";
 
 import resolveFolderName from "./ShowAll/steps/resolveFolderName.js";
 
-export default ({ folderName = "" }) => {
+export default ({ folderName = "", toPath }) => {
+    const localToPath = toPath;
     const resolvedFolderName = resolveFolderName({
         name: folderName
     });
 
     const source = locateSource();
-    const destination = locateDestination({ inResolvedFolderName: resolvedFolderName });
+    const destination = locateDestination({
+        inResolvedFolderName: resolvedFolderName,
+        toPath: localToPath
+    });
 
     createFolder({ source, destination });
 
     updateEndPointsJs({
-        appJsPath: `${process.cwd()}/end-points.js`,
+        appJsPath: `${localToPath}/end-points.js`,
         endpoint: resolvedFolderName
     });
 
@@ -31,4 +32,6 @@ export default ({ folderName = "" }) => {
     // });
 
     announce({ inResolvedFolderName: resolvedFolderName });
+
+    return resolveFolderName;
 };

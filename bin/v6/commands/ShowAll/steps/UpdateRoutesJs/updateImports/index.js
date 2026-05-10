@@ -4,18 +4,16 @@ import checkDuplicate from "./checkDuplicate.js";
 import findInsertIndex from "./findInsertIndex.js";
 import writeFile from "../common/writeFile.js";
 
-const funcName = "getFunc";
-
-const updateImports = ({ appJsPath, endpoint, showLog }) => {
+const updateImports = ({ appJsPath, endpoint, showLog, inFuncName }) => {
     const summary = {
         import: { added: false, line: null },
     };
 
     const content = readFile(appJsPath);
-    
+
     const importLine = buildImport({
         inEndpoint: endpoint,
-        inFuncName: funcName
+        inFuncName
     });
 
     if (checkDuplicate(content, endpoint)) {

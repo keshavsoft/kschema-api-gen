@@ -1,5 +1,5 @@
-const buildUseLine = (funcName) => {
-    return `app.use("/ShowAll", ${funcName});`;
+const buildUseLine = ({ inEndpoint, inFuncName }) => {
+    return `app.use("/${inEndpoint}", ${inFuncName});`;
 };
 
 export default buildUseLine;
