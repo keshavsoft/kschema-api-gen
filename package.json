@@ -1,6 +1,6 @@
 {
   "name": "@keshavsoft/kschema-api-gen",
-  "version": "1.6.6",
+  "version": "1.7.1",
   "description": "CLI to scaffold projects using templates",
   "keywords": [
     "cli",

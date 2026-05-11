@@ -125,3 +125,7 @@ The format is based on Keep a Changelog.
 ## [1.6.6] - 2026-05-11
 
 - showall fixed with use
+
+## [1.7.1] - 2026-05-11
+
+- all good with folder check
