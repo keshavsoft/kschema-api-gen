@@ -122,6 +122,6 @@ The format is based on Keep a Changelog.
 
 - createapi perfect now with journals
 
-## [1.6.5] - 2026-05-10
+## [1.6.6] - 2026-05-11
 
-- endpoint perfect with accounts
+- showall fixed with use
