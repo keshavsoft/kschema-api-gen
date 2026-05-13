@@ -129,3 +129,7 @@ The format is based on Keep a Changelog.
 ## [1.7.1] - 2026-05-11
 
 - all good with folder check
+
+## [1.8.1] - 2026-05-11
+
+- splitted to new folders in tasks and insert started
