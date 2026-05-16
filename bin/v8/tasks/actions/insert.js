@@ -49,5 +49,5 @@ export default ({ folderName = "", toPath, isAnnounce = true, checkBeforeCreate 
 
     if (isAnnounce) announce({ inResolvedFolderName: resolvedFolderName });
 
-    return resolveFolderName;
+    return resolvedFolderName;
 };

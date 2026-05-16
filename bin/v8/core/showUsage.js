@@ -30,6 +30,7 @@ ${y}Usage:${r}
 ${y}Commands:${r}
   ${g}StartEndPoint${r}     Initialize a new folder and files
   ${g}CreateApi${r}         Creates new end point and hooks to app.js
+  ${g}InsertApi${r}         Creates new InsertApi end point and hooks to app.js
 
 ${y}Examples:${r}
   ${gray}npx @keshavsoft/kschema-api-gen StartEndPoint${r}

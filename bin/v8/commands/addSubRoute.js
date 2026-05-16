@@ -15,7 +15,7 @@ export default ({ folderName = "", argsAsIs, toPath, isAnnounce = true, checkBef
     if (resolvedFolderName.KTF === false) {
         console.log(resolvedFolderName.KReason);
 
-        return;
+        return folderName;
     };
 
     const source = locateSource();

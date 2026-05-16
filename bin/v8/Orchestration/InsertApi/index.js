@@ -3,13 +3,14 @@ import path from "path";
 import startEndPoint from "../../commands/startEndPoint.js";
 import addSubRoute from "../../commands/addSubRoute.js";
 import addTableName from "../../tasks/tables/addTableName.js";
-import showAll from "../../commands/showAll.js";
+import insert from "../../tasks/actions/insert.js";
 
 export default ({ inRouteObject, showLog = true }) => {
     const localcommand = inRouteObject.command;
+    const root = inRouteObject.root;
 
     const fromStartEndPoint = startEndPoint({
-        folderName: inRouteObject.root,
+        folderName: root,
         toPath: process.cwd(),
         isAnnounce: false
     });
@@ -28,7 +29,7 @@ export default ({ inRouteObject, showLog = true }) => {
 
     const endpointPath = path.join(process.cwd(), fromStartEndPoint, fromAddSubRoute, fromAddTableName);
 
-    const fromShowAll = showAll({
+    const fromShowAll = insert({
         folderName: inRouteObject.command,
         toPath: endpointPath,
         isAnnounce: false

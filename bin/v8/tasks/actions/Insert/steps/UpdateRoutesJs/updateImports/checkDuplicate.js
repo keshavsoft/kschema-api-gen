@@ -1,8 +1,8 @@
-const checkUseDuplicate = (inContent, inEndpoint) => {
+const checkUseDuplicate = ({ inContent, inFuncName }) => {
     const localContent = inContent;
-    const localEndpoint = inEndpoint;
+    const toCheckLine = `import { ${inFuncName} } from`;
 
-    return localContent.includes(`app.use("/${localEndpoint}"`);
+    return localContent.includes(toCheckLine);
 };
 
 export default checkUseDuplicate;

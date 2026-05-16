@@ -15,9 +15,7 @@ export default ({ folderName = "", toPath, isAnnounce = true, checkBeforeCreate 
     });
 
     if (resolvedFolderName.KTF === false) {
-        console.log(resolvedFolderName.KReason);
-
-        return;
+        return folderName;
     };
 
     const source = locateSource();
@@ -30,6 +28,8 @@ export default ({ folderName = "", toPath, isAnnounce = true, checkBeforeCreate 
         source, destination,
         isAnnounce, checkBeforeCreate
     });
+
+    console.log("bbbbbbbbbbbbbbbb : ", createFolderResponse);
 
     if (createFolderResponse.KTF) {
         updateAppJs({

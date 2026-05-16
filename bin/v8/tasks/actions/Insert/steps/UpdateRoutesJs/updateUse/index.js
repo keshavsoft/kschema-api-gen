@@ -5,6 +5,8 @@ import buildUseLine from "./buildUseLine.js";
 import checkDuplicate from "./checkDuplicate.js";
 import findUseInsertIndex from "./findInsertIndex.js";
 
+const appOrRouter = "router";
+
 const updateAppUse = ({ appJsPath, endpoint, showLog, inFuncName }) => {
     const summary = {
         use: { added: false, skipped: false, line: null }
@@ -13,11 +15,19 @@ const updateAppUse = ({ appJsPath, endpoint, showLog, inFuncName }) => {
     const content = readFile(appJsPath);
 
     const useLine = buildUseLine({
+        inAppOrRouter: appOrRouter,
         inEndpoint: endpoint,
         inFuncName
     });
 
-    if (checkDuplicate(content, endpoint)) {
+    const fromCheckDuplicate = checkDuplicate({
+        inContent: content,
+        inEndpoint: endpoint,
+        inAppOrRouter: appOrRouter
+    });
+    console.log("fromCheckDuplicate : ", fromCheckDuplicate);
+
+    if (fromCheckDuplicate) {
         summary.use.skipped = true;
 
         if (showLog) console.log(summary);

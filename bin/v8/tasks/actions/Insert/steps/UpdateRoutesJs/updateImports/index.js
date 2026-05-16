@@ -16,7 +16,9 @@ const updateImports = ({ appJsPath, endpoint, showLog, inFuncName }) => {
         inFuncName
     });
 
-    if (checkDuplicate(content, endpoint)) {
+    const fromCheckDuplicate = checkDuplicate({ inContent: content, inFuncName });
+
+    if (fromCheckDuplicate) {
         summary.import.skipped = true;
 
         if (showLog) console.log(summary);

@@ -19,7 +19,7 @@ export default ({ folderName = "", toPath, isAnnounce = true, checkBeforeCreate 
     if (resolvedFolderName.KTF === false) {
         console.log(resolvedFolderName.KReason);
 
-        return;
+        return folderName;
     };
 
     const source = locateSource();

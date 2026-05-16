@@ -1,9 +1,5 @@
-const appOrRouter = "router";
-
-const buildUseLine = ({ inEndpoint, inFuncName }) => {
-    return `${appOrRouter}.get('/${inEndpoint}', (req, res) => ${inFuncName}({ res, inTableName : tableName}));`;
-
-    // return `${appOrRouter}.use("/${inEndpoint}", ${inFuncName});`;
+const buildUseLine = ({ inAppOrRouter, inEndpoint, inFuncName }) => {
+    return `${inAppOrRouter}.get('/${inEndpoint}', (req, res) => ${inFuncName}({ res, inTableName : tableName}));`;
 };
 
 export default buildUseLine;
